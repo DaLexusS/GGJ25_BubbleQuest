@@ -317,8 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1540084216}
-  smoothSpeed: 0.03
-  offset: {x: 0, y: 0, z: -10}
+  playerSettings: {fileID: 11400000, guid: fae3b5caf8a992041986e6f3c67bbabc, type: 2}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
