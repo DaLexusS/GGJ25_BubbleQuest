@@ -1,18 +1,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class RestartManager : MonoBehaviour
 {
-    public Button restartButton;
+    
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        restartButton.onClick.AddListener(RestartScene);
+        DeathOnTouch.onPlayerDeath += RestartScene;
     }
 
-    private void RestartScene()
+    private void OnDestroy()
+    {
+        DeathOnTouch.onPlayerDeath -= RestartScene;
+    }
+    public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
