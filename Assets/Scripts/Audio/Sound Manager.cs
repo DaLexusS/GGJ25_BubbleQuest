@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-
-
 //This is how you call sounds :  SoundManager.Instance.PlaySound(SoundType.Music, SoundName.BackgroundMusic);
 public class SoundManager : MonoBehaviour
 {
@@ -17,8 +15,6 @@ public class SoundManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // Optional: keep SoundManager alive across scenes
-           
-           
         }
         else
         {
@@ -50,7 +46,7 @@ public class SoundManager : MonoBehaviour
         }
 
         // Play sound through SoundPoolManager
-        SoundPoolManager.Instance.PlaySound(sound.clip);
+        SoundPoolManager.Instance.PlaySound(sound.clip, 1f) ;
     }
 }
 

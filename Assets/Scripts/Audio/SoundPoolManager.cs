@@ -9,15 +9,7 @@ public class SoundPoolManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            InitializePool();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        InitializePool();
     }
     private void InitializePool()
     {
@@ -25,10 +17,7 @@ public class SoundPoolManager : MonoBehaviour
 
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject audioObj = new GameObject("SoundPlayer_" + i);
-            audioObj.transform.SetParent(transform);
-
-            AudioSource source = audioObj.AddComponent<AudioSource>();
+            AudioSource source = transform.gameObject.AddComponent<AudioSource>();
             source.playOnAwake = false;
 
             soundPool[i] = source;

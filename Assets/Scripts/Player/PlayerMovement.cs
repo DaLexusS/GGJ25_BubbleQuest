@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        
         playerRigid = player.GetComponent<Rigidbody2D>();
         isGround = player.GetComponent<CheckGrounded>();
         playerVisual = playerSprite.GetComponent<SpriteRenderer>();

@@ -727,8 +727,8 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
   - component: {fileID: 519420036}
+  - component: {fileID: 519420037}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -881,7 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings: {fileID: 11400000, guid: fae3b5caf8a992041986e6f3c67bbabc, type: 2}
---- !u!114 &519420035
+--- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,27 +894,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCategories:
-  - soundType: 0
+  - type: 0
     sounds:
-    - name: Background Music
-      clip: {fileID: 0}
-  - soundType: 1
-    sounds:
-    - name: Destroy Bubble + Box
-      clip: {fileID: 0}
-    - name: Destroy Bubble + Dad
-      clip: {fileID: 0}
-    - name: Destroy Bubble + Flag
-      clip: {fileID: 0}
-  - soundType: 2
-    sounds:
-    - name: Pause Button
-      clip: {fileID: 0}
-    - name: Restart Button
-      clip: {fileID: 0}
-    - name: Restart - Erasing
-      clip: {fileID: 0}
---- !u!114 &519420036
+    - name: 0
+      clip: {fileID: 8300000, guid: 5d35b7224324c044c8c53a32af9d685d, type: 3}
+--- !u!114 &519420037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
