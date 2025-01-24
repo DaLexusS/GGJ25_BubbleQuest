@@ -4,7 +4,7 @@ public class BubbleDrag : MonoBehaviour
 {
     public PlayerSettings playerSettings;
 
-    public bool isDragging = false;
+    private bool isDragging = false;
     private Camera cam;
 
     void Start()
@@ -21,7 +21,6 @@ public class BubbleDrag : MonoBehaviour
 
         if (isDragging)
         {
-            transform.gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
             Vector3 fixedWithZPosition = GetMouseWorldPosition();
             fixedWithZPosition.z = 0;
 
@@ -35,7 +34,6 @@ public class BubbleDrag : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
-            transform.gameObject.GetComponent<PolygonCollider2D>().isTrigger = false;
         }
     }
 

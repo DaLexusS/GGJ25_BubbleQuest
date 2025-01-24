@@ -7,7 +7,7 @@ public class EndLevel : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerCharacter"))
+        if (other.CompareTag("Player"))
         {
             MarkLevelComplete();
             LoadNextLevel();

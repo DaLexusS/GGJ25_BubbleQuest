@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject player;
     public GameObject playerSprite;
     public PlayerSettings playerSettings;
-    public GameObject GroundCheckerObject;
 
     private Rigidbody2D playerRigid;
     private CheckGrounded isGround;
@@ -18,8 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        
         playerRigid = player.GetComponent<Rigidbody2D>();
-        isGround = GroundCheckerObject.GetComponent<CheckGrounded>();
+        isGround = player.GetComponent<CheckGrounded>();
         playerVisual = playerSprite.GetComponent<SpriteRenderer>();
     }
     
