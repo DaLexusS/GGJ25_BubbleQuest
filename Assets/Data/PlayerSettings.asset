@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
   WalkSpeed: 7
-  JumpPower: 450
+  JumpPower: 600
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -10}
   shakeDuration: 0.5
