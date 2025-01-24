@@ -7,16 +7,11 @@ public class PauseManager : MonoBehaviour
     public Button pauseButton;
     public TMP_Text pauseText;
     private bool _isPaused=false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pauseText.text = "Pause"; // uses the placeholder text before we move to icons
-        
-        pauseButton.onClick.AddListener(TogglePause);
     }
-
-    
-    private void TogglePause()
+    public void TogglePause()
     {
         _isPaused = !_isPaused;
 

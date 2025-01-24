@@ -8,16 +8,6 @@ public class CameraShake : MonoBehaviour
     private bool isShaking = false;
     private float shakeTimeRemaining = 0f;
     static public UnityAction OnShake;
-    private void Awake()
-    {
-        OnShake += TriggerShake;
-        originalPosition = transform.position;
-    }
-
-    private void OnDestroy()
-    {
-        OnShake -= TriggerShake;
-    }
 
     void Update()
     {

@@ -18,6 +18,7 @@ public class RestartManager : MonoBehaviour
     }
     public void RestartScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
