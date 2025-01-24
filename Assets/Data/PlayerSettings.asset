@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef915a5782a521940bb5ba8896cbd32a, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  WalkSpeed: 7
+  WalkSpeed: 10
   JumpPower: 450
   smoothSpeed: 0.125
-  offset: {x: 0, y: 0, z: -10}
-  BubbleDragSmooth: 0.09
+  offset: {x: 0, y: 0, z: 0}
+  BubbleDragSmooth: 0.125
   borderOffset: 1
