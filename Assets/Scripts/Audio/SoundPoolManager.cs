@@ -9,6 +9,7 @@ public class SoundPoolManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         InitializePool();
     }
     private void InitializePool()
