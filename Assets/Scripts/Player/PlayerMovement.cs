@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public PlayerSettings playerSettings;
 
     private Rigidbody2D playerRigid;
-    private bool isGrounded = false;
     private CheckGrounded isGround;
 
     private void Awake()
@@ -26,17 +25,17 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveInput = 0f;
 
-        if (Input.GetKey(KeyCode.A)) { moveInput = -1f; }
-        else if(Input.GetKey(KeyCode.D)) { moveInput = 1f; }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) { moveInput = -1f; }
+        else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) { moveInput = 1f; }
         
         playerRigid.linearVelocity = new Vector2(moveInput * playerSettings.WalkSpeed, playerRigid.linearVelocity.y);
     }
 
     void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround.isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            playerRigid.AddForce(new Vector2(0f, playerSettings.JumpPower));
+            if (isGround.isGrounded) { playerRigid.AddForce(new Vector2(0f, playerSettings.JumpPower)); }
         }
     }
 
