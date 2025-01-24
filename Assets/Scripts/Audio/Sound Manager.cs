@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+ 
 
     /// <summary>
     /// Plays a sound based on the type and name.
@@ -46,6 +47,7 @@ public class SoundManager : MonoBehaviour
         }
 
         // Play sound through SoundPoolManager
+       
         SoundPoolManager.Instance.PlaySound(sound.clip, 1f) ;
     }
 }
