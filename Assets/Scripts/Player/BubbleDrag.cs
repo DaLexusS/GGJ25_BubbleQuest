@@ -4,7 +4,7 @@ public class BubbleDrag : MonoBehaviour
 {
     public PlayerSettings playerSettings;
 
-    private bool isDragging = false;
+    public bool isDragging = false;
     private Camera cam;
 
     void Start()
