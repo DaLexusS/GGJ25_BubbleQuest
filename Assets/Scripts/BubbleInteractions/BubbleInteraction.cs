@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public enum BubbleType
 {
@@ -9,48 +8,48 @@ public enum BubbleType
 
 public class BubbleInteraction : MonoBehaviour
 {
-    static public UnityAction onLose;
     [SerializeField] public BubbleType myBubbleType;
+    private bool isHoveringObject = false;
 
-    public BubbleDrag bubbleDrag;
-    public GameObject LastObject;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (LastObject != null) { return; }
-        if (collision.gameObject.CompareTag("Bubble_Interactable") ||
-            collision.gameObject.CompareTag("Player") ||
-            collision.gameObject.CompareTag("EndGoal"))
+        if (!other.CompareTag("Bubble_Interactable")) { return; }
+
+        switch (myBubbleType)
         {
-            switch (myBubbleType)
-            {
-                case BubbleType.Destroy:
-                    ObjectDisappear bubbleObject = collision.gameObject.GetComponent<ObjectDisappear>();
-                    bubbleObject.ToggleObject();
-                    LastObject = collision.gameObject;
-                    break;
-                default:
-                    break;
-            }
+            case BubbleType.Destroy:
+                Transform physicalObject = other.transform.Find("Physical");
+                if (physicalObject.gameObject.activeSelf && !isHoveringObject)
+                {
+                    DestroyBubble(physicalObject.gameObject, true);
+                }
+                break;
+            default:
+                break;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Bubble_Interactable") ||
-            other.CompareTag("Player") ||
-            other.CompareTag("EndGoal"))
+        if (!other.CompareTag("Bubble_Interactable")) { return; }
+
+        switch (myBubbleType)
         {
-                switch (myBubbleType)
+            case BubbleType.Destroy:
+                Transform physicalObject = other.transform.Find("Physical");
+                if (!physicalObject.gameObject.activeSelf)
                 {
-                    case BubbleType.Destroy:
-                        ObjectDisappear bubbleObject = other.gameObject.GetComponent<ObjectDisappear>();
-                        bubbleObject.ToggleObject();
-                        LastObject = null;
-                        break;
-                    default:
-                        break;
+                    DestroyBubble(physicalObject.gameObject, false);
                 }
+                break;
+            default:
+                break;
         }
+    }
+
+    private void DestroyBubble(GameObject obj, bool state)
+    {
+        if (state) { obj.SetActive(false); isHoveringObject = true; }
+        else { obj.SetActive(true); isHoveringObject = false; ;  }
     }
 }

@@ -18,7 +18,6 @@ public class RestartManager : MonoBehaviour
     }
     public void RestartScene()
     {
-        Debug.Log("Played Died!");
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

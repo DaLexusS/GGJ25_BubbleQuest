@@ -9,16 +9,20 @@ public class CheckGrounded : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        isGrounded = true;
-        AirBorn.Invoke(false);
-        onLanded.Invoke();
-
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            AirBorn.Invoke(false);
+            onLanded.Invoke();
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        isGrounded = false;
-        AirBorn.Invoke(true);
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+            AirBorn.Invoke(true);
+        }
     }
 }
