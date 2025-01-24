@@ -21,7 +21,7 @@ public class BubbleDrag : MonoBehaviour
 
         if (isDragging)
         {
-            transform.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+            transform.gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
             Vector3 fixedWithZPosition = GetMouseWorldPosition();
             fixedWithZPosition.z = 0;
 
@@ -35,7 +35,7 @@ public class BubbleDrag : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
-            transform.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+            transform.gameObject.GetComponent<PolygonCollider2D>().isTrigger = false;
         }
     }
 
