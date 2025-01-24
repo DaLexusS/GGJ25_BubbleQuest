@@ -16,3 +16,4 @@ MonoBehaviour:
   JumpPower: 250
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -10}
+  BubbleDragSmooth: 0.09

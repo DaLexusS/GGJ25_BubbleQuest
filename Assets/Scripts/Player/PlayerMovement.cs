@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public PlayerSettings playerSettings;
 
     private Rigidbody2D playerRigid;
-    private bool isGrounded = false;
     private CheckGrounded isGround;
 
     private void Awake()

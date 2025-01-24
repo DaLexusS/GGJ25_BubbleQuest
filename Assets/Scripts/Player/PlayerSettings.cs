@@ -10,4 +10,7 @@ public class PlayerSettings : ScriptableObject
     [Header("Camera Settings")]
     [SerializeField] public float smoothSpeed = 0.125f;
     [SerializeField] public Vector3 offset;
+
+    [Header("Bubble Settings")]
+    [SerializeField] public float BubbleDragSmooth = 0.125f;
 }
