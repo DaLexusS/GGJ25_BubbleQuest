@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef915a5782a521940bb5ba8896cbd32a, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  WalkSpeed: 100
+  WalkSpeed: 7
   JumpPower: 250
+  smoothSpeed: 0.125
+  offset: {x: 0, y: 0, z: -10}
