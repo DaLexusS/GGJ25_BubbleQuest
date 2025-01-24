@@ -13,4 +13,5 @@ public class PlayerSettings : ScriptableObject
 
     [Header("Bubble Settings")]
     [SerializeField] public float BubbleDragSmooth = 0.125f;
+    [SerializeField] public float borderOffset = 3f;
 }

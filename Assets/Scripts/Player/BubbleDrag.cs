@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-
-
 
 public class BubbleDrag : MonoBehaviour
 {
@@ -26,8 +23,11 @@ public class BubbleDrag : MonoBehaviour
         {
             Vector3 fixedWithZPosition = GetMouseWorldPosition();
             fixedWithZPosition.z = 0;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, fixedWithZPosition, playerSettings.BubbleDragSmooth);
 
+            fixedWithZPosition.x = Mathf.Clamp(fixedWithZPosition.x, cam.ViewportToWorldPoint(new Vector3(playerSettings.borderOffset / cam.orthographicSize, 0, 0)).x, cam.ViewportToWorldPoint(new Vector3(1 - playerSettings.borderOffset / cam.orthographicSize, 0, 0)).x);
+            fixedWithZPosition.y = Mathf.Clamp(fixedWithZPosition.y, cam.ViewportToWorldPoint(new Vector3(0, playerSettings.borderOffset / cam.orthographicSize, 0)).y, cam.ViewportToWorldPoint(new Vector3(0, 1 - playerSettings.borderOffset / cam.orthographicSize, 0)).y);
+
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, fixedWithZPosition, playerSettings.BubbleDragSmooth);
             transform.position = smoothedPosition;
         }
 

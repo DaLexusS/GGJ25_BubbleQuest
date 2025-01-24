@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
   WalkSpeed: 7
-  JumpPower: 250
+  JumpPower: 450
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -10}
   BubbleDragSmooth: 0.09
+  borderOffset: 1
