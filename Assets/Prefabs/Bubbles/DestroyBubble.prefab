@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -150,7 +150,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380516826497304670}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -168,7 +168,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3203750539121956894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,10 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myBubbleType: 0
-  bubbleDrag: {fileID: 0}
-  colliderBubble: {fileID: 0}
-  playerMovement: {fileID: 0}
-  visual: {fileID: 0}
+  bubbleDrag: {fileID: 6407209177485901972}
+  LastObject: {fileID: 0}
 --- !u!1 &3296191089072719850
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ TagManager:
   - Bubble
   - Bubble_Interactable
   - EndGoal
+  - PlayerCharacter
   layers:
   - Default
   - TransparentFX

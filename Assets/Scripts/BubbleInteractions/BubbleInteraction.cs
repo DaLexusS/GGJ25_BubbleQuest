@@ -29,27 +29,24 @@ public class BubbleInteraction : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("sex");
-        if (!bubbleDrag.isDragging)
+        if (LastObject != null) { return; }
+        if (collision.gameObject.CompareTag("Bubble_Interactable") ||
+            collision.gameObject.CompareTag("Player") ||
+            collision.gameObject.CompareTag("EndGoal"))
         {
-            Debug.Log("sex shrek");
-            if (LastObject != null) { return; }
-            if (collision.gameObject.CompareTag("Bubble_Interactable") ||
-                collision.gameObject.CompareTag("Player") ||
-                collision.gameObject.CompareTag("EndGoal"))
+            switch (myBubbleType)
             {
-                ObjectDisappear bubbleObject = collision.gameObject.gameObject.GetComponent<ObjectDisappear>();
-                bubbleObject.ToggleObject();
-                LastObject = collision.gameObject.gameObject;
+                case BubbleType.Destroy:
+                    ObjectDisappear bubbleObject = collision.gameObject.GetComponent<ObjectDisappear>();
+                    bubbleObject.ToggleObject();
+                    LastObject = collision.gameObject;
+                    break;
+                default:
+                    break;
             }
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -58,9 +55,16 @@ public class BubbleInteraction : MonoBehaviour
             other.CompareTag("Player") ||
             other.CompareTag("EndGoal"))
         {
-            ObjectDisappear bubbleObject = other.gameObject.GetComponent<ObjectDisappear>();
-            bubbleObject.ToggleObject();
-            LastObject = null;
+                switch (myBubbleType)
+                {
+                    case BubbleType.Destroy:
+                        ObjectDisappear bubbleObject = other.gameObject.GetComponent<ObjectDisappear>();
+                        bubbleObject.ToggleObject();
+                        LastObject = null;
+                        break;
+                    default:
+                        break;
+                }
         }
     }
 
