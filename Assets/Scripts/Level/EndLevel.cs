@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
@@ -8,6 +9,7 @@ public class EndLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            MarkLevelComplete();
             LoadNextLevel();
         }
     }
@@ -27,5 +29,16 @@ public class EndLevel : MonoBehaviour
         {
             Debug.Log("no more levels");
         }
+    }
+
+    void MarkLevelComplete()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        string key= $"Level_ ${currentSceneIndex}_Unlocked";
+        
+        PlayerPrefs.SetInt(key, 1 );
+        PlayerPrefs.Save();
+        
+        Debug.Log($"Level {currentSceneIndex} completed. Unlocking Level {currentSceneIndex + 1}.");
     }
 }
